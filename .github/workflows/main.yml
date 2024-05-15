@@ -37,7 +37,7 @@ jobs:
         working-directory: CDK-AWS
 
       - name: Bootstrap CDK Environment
-        run: cdk bootstrap
+        run: cdk bootstrap --app  "python3 app.py" -c env="dev" -c region="us-east-1"
         working-directory: CDK-AWS
 
       - name: CDK Synth
