@@ -45,5 +45,5 @@ jobs:
         working-directory: CDK-AWS
 
       - name: CDK Deploy
-        run: cdk deploy --app  "python3 app.py" -c env="dev" -c region="us-east-1"
+        run: cdk deploy --app  "python3 app.py" -c env="dev" -c region="us-east-1" --require-approval never
         working-directory: CDK-AWS
