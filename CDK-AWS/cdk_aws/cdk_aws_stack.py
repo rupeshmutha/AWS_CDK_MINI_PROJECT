@@ -40,5 +40,5 @@ class AwsCdkDemoStack(Stack):
             scope=self,
             event_name="demo_lambda_cron_trigger",
             lambda_function=self.demo_lambda,
-            cron_schedule=aws_events.Schedule.cron(hour="*/2", minute="0")
+            cron_schedule=aws_events.Schedule.cron(minute="0/15")
         )
