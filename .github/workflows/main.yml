@@ -37,9 +37,9 @@ jobs:
         working-directory: CDK-AWS
 
       - name: CDK Synth
-        run: cdk synth
+        run: cdk synth --app  "python3 app.py" -c env="dev" -c region="us-east-1"
         working-directory: CDK-AWS
 
       - name: CDK Deploy
-        run: cdk deploy
+        run: cdk deploy --app  "python3 app.py" -c env="dev" -c region="us-east-1"
         working-directory: CDK-AWS
