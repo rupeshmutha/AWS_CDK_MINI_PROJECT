@@ -1,13 +1,10 @@
 from aws_cdk import (
     Stack,
-    aws_lambda as _lambda,
-    aws_events,
-    # aws_dynamodb as dynamodb,
-    aws_lambda_event_sources as event_sources,
+    aws_events    
 )
-from cdk_aws.iam import IAMRole
+from cdk_aws.iam_construct import IAMRole
 from cdk_aws.lambda_construct import LambdaFunctions
-
+from cdk_aws.layer_construct import LambdaLayer
 
 class AwsCdkDemoStack(Stack):
     def __init__(self, scope, construct_id, deploy_env_type, config, **kwargs):
@@ -19,6 +16,13 @@ class AwsCdkDemoStack(Stack):
             deploy_env_type=deploy_env_type,
             config=config
         )
+        
+        #Layer
+        self.kinetiq_ingest_application_layer = LambdaLayer.create_or_update_application_layer(
+            scope=self, 
+            deploy_env_type=deploy_env_type
+        )
+
 
         # lambdas
         self.demo_lambda = LambdaFunctions.create_or_update_demo_lambda(

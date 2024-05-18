@@ -14,7 +14,7 @@ class LambdaFunctions:
         demo_lambda_handler = _lambda.Function(
             scope,
             id="demo_lambda_resource_id",
-            code=_lambda.Code.from_asset("../CDK-AWS/demo_lambda/"),
+            code=_lambda.Code.from_asset("../CDK-AWS/lambda_codes/"),
             handler="demo_lambda_module.demo_lambda_handler",
             runtime=_lambda.Runtime("python3.10"),
             function_name="demo_lambda",
