@@ -36,9 +36,9 @@ jobs:
         run: 'pip3 install -r pipe-requirements.txt'
         working-directory: CDK-AWS
 
-      - name: Install Layer Requirements
-        run: 'pip3 install -r lambda_layers/python/requirements.txt'
-        working-directory: CDK-AWS
+      # - name: Install Layer Requirements
+      #   run: 'pip3 install -r lambda_layers/python/requirements.txt'
+      #   working-directory: CDK-AWS
 
       - name: Bootstrap CDK Environment
         run: cdk bootstrap --app  "python3 app.py" -c env="dev" -c region="us-east-1"
