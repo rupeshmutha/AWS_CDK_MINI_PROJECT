@@ -29,7 +29,7 @@ class IAMRole:
                             "s3:ListBucket"
                         ],
                         resources= [
-                            f"arn:aws:s3:::{config['s3_bucket_name']}",
+                            f"arn:aws:s3:::{config['s3_bucket_name']}*",
                             f"arn:aws:s3:::{config['s3_bucket_name']}/*"
                         ]
                     )

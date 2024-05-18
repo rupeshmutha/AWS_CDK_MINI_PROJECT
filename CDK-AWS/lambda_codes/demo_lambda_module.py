@@ -34,5 +34,5 @@ def demo_lambda_handler(event, context):
         logger.info("Function Ended at {}".format(datetime.now(timezone.utc)))
 
     except Exception as exception_info:
-        logger.error("Error Occurred", msg=exception_info)
+        logger.error("Error Occurred", exc_info=exception_info)
         raise exception_info
