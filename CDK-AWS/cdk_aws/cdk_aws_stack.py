@@ -4,7 +4,7 @@ from aws_cdk import (
 )
 from cdk_aws.iam_construct import IAMRole
 from cdk_aws.lambda_construct import LambdaFunctions
-from cdk_aws.layer_construct import LambdaLayer
+# from cdk_aws.layer_construct import LambdaLayer
 
 class AwsCdkDemoStack(Stack):
     def __init__(self, scope, construct_id, deploy_env_type, config, **kwargs):
@@ -17,11 +17,11 @@ class AwsCdkDemoStack(Stack):
             config=config
         )
         
-        #Layer
-        self.newtools_layer = LambdaLayer.create_or_update_application_layer(
-            scope=self, 
-            deploy_env_type=deploy_env_type
-        )
+        # #Layer
+        # self.newtools_layer = LambdaLayer.create_or_update_application_layer(
+        #     scope=self, 
+        #     deploy_env_type=deploy_env_type
+        # )
 
 
         # lambdas
@@ -30,7 +30,7 @@ class AwsCdkDemoStack(Stack):
             deploy_env_type=deploy_env_type,
             config=config,
             iam_role=self.demo_lambda_role,
-            logger_layer=self.newtools_layer
+            # logger_layer=self.newtools_layer
         )
 
         LambdaFunctions.add_lambda_cron_job(
