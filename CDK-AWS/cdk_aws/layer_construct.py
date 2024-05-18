@@ -9,7 +9,7 @@ class LambdaLayer:
         lambda_layer= _lambda.LayerVersion(
             scope,
             id="logger_layer_resource_id",
-            code=_lambda.AssetCode("../CDK-AWS/lambda_layers/python/"),
+            code=_lambda.AssetCode("../CDK-AWS/lambda_layers/"),
             layer_version_name="demo_lambda_logging_layer_{}".format(deploy_env_type),
             compatible_runtimes=[_lambda.Runtime("python3.10")],
             compatible_architectures=[_lambda.Architecture.X86_64]
