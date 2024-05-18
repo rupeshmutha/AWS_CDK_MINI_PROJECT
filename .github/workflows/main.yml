@@ -36,7 +36,7 @@ jobs:
         run: 'pip3 install -r requirements.txt'
         working-directory: CDK-AWS
 
-      - name: Install Requirements 
+      - name: Install Layer Requirements 
         run: 'pip3 install -r requirements.txt'
         working-directory: CDK-AWS/lambda_layers/python
 
