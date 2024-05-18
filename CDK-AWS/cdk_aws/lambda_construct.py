@@ -9,7 +9,7 @@ class LambdaFunctions:
 
     @staticmethod
     def create_or_update_demo_lambda(
-        scope, deploy_env_type, config, iam_role, 
+        scope, deploy_env_type, config, iam_role, logger_layer
     ) -> Function:
         demo_lambda_handler = _lambda.Function(
             scope,
@@ -17,9 +17,10 @@ class LambdaFunctions:
             code=_lambda.Code.from_asset("../CDK-AWS/lambda_codes/"),
             handler="demo_lambda_module.demo_lambda_handler",
             runtime=_lambda.Runtime("python3.10"),
-            function_name="demo_lambda",
+            function_name="demo_lambda_{}".format(deploy_env_type),
             role=iam_role,
             timeout=Duration.minutes(5),
+            layers=logger_layer,
             architecture=_lambda.Architecture.X86_64,
             environment={
                 "APPLICATION_NAME": config["aws_cdk_demo_lambda"],

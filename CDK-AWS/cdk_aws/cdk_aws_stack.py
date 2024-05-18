@@ -18,7 +18,7 @@ class AwsCdkDemoStack(Stack):
         )
         
         #Layer
-        self.kinetiq_ingest_application_layer = LambdaLayer.create_or_update_application_layer(
+        self.newtools_layer = LambdaLayer.create_or_update_application_layer(
             scope=self, 
             deploy_env_type=deploy_env_type
         )
@@ -29,7 +29,8 @@ class AwsCdkDemoStack(Stack):
             scope=self,
             deploy_env_type=deploy_env_type,
             config=config,
-            iam_role=self.demo_lambda_role
+            iam_role=self.demo_lambda_role,
+            logger_layer=self.newtools_layer
         )
 
         LambdaFunctions.add_lambda_cron_job(
