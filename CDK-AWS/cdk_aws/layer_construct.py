@@ -12,6 +12,6 @@ class LambdaLayer:
             code=_lambda.AssetCode("../CDK-AWS/lambda_layers/"),
             layer_version_name="demo_lambda_logging_layer_{}".format(deploy_env_type),
             compatible_runtimes=[_lambda.Runtime("python3.10")],
-            compatible_architectures=[_lambda.Architecture.X86_64]
+            compatible_architectures=[_lambda.Architecture.ARM_64]
         )
         return lambda_layer

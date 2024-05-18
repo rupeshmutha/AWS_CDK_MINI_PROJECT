@@ -21,7 +21,7 @@ class LambdaFunctions:
             role=iam_role,
             timeout=Duration.minutes(5),
             layers=[logger_layer],
-            architecture=_lambda.Architecture.X86_64,
+            architecture=_lambda.Architecture.ARM_64,
             environment={
                 "APPLICATION_NAME": config["aws_cdk_demo_lambda"],
                 "s3_bucket" : config["s3_bucket_name"]
