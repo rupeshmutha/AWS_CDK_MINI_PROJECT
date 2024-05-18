@@ -3,7 +3,8 @@ import boto3
 import os
 import logging
 from datetime import datetime, timezone
-from newtools import newtools
+# from newtools import newtools
+from newtools import db
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
