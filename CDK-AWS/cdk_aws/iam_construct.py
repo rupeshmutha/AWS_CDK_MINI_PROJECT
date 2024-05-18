@@ -26,7 +26,8 @@ class IAMRole:
                         actions= [
                             "s3:PutObject",
                             "s3:GetObject",
-                            "s3:ListBucket"
+                            "s3:ListBucket",
+                            "s3:DeleteObject"
                         ],
                         resources= [
                             f"arn:aws:s3:::{config['s3_bucket_name']}*",
